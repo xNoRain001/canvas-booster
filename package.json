@@ -1,0 +1,25 @@
+{
+  "name": "canvas-booster",
+  "version": "1.0.0",
+  "description": "Canvas booster",
+  "keywords": [
+    "canvas",
+    "canvas-booster"
+  ],
+  "author": "Zhang Meixue",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/xNoRain001/canvas-booster.git"
+  },
+  "main": "dist/canvas-booster.js",
+  "scripts": {
+    "build": "rollup -c -w"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "rollup": "^2.72.0"
+  },
+  "devDependencies": {
+    "rollup-plugin-babel": "^4.4.0"
+  }
+}
