@@ -12,27 +12,45 @@ const drawGrid = (options = {}) => {
   const { 
     context,
     color = 'black',
-    lineWidth = 0.5,
+    lineWidth = 1,
     stepX = 10,
-    stepY = 10
-   } = options
+    stepY = 10,
+    margin = 0
+  } = options
 
   context.lineWidth = lineWidth
   context.strokeStyle = color
 
+  const width = context.canvas.width
+  const height = context.canvas.height
+
   // horizontal line
-  for (let i = stepY + 0.5; i < context.canvas.height; i += stepY) {
+  for (
+    let x1 = margin,
+      x2 = width - margin,
+      y = margin + stepY + 0.5,
+      boundary = height - margin;
+    y < boundary; 
+    y += stepY
+  ) {
     context.beginPath()
-    context.moveTo(0, i)
-    context.lineTo(context.canvas.width, i)
+    context.moveTo(x1, y)
+    context.lineTo(x2, y)
     context.stroke()
   }
 
   // vertical line
-  for (let i = stepX + 0.5; i < context.canvas.width; i += stepX) {
+  for (
+    let y1 = margin,
+      y2 = height - margin,
+      x = margin + stepX + 0.5,
+      boundary = width - margin;
+    x < boundary; 
+    x += stepX
+  ) {
     context.beginPath()
-    context.moveTo(i, 0)
-    context.lineTo(i, context.canvas.height)
+    context.moveTo(x, y1)
+    context.lineTo(x, y2)
     context.stroke()
   }
 }
