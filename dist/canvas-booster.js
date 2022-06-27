@@ -220,10 +220,30 @@
     _drawAxis();
   };
 
+  var drawDashedLine = function drawDashedLine() {
+    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var context = options.context,
+        x1 = options.x1,
+        y1 = options.y1,
+        x2 = options.x2,
+        y2 = options.y2,
+        _options$color = options.color,
+        color = _options$color === void 0 ? black : _options$color,
+        _options$pattern = options.pattern,
+        pattern = _options$pattern === void 0 ? [10, 5] : _options$pattern;
+    context.strokeStyle = color;
+    context.setLineDash(pattern);
+    context.beginPath();
+    context.moveTo(x1, y1);
+    context.lineTo(x2, y2);
+    context.stroke();
+  };
+
   var init = function init(booster) {
     booster.isSupport = isSupport;
     booster.drawGrid = drawGrid;
     booster.drawAxis = drawAxis;
+    booster.drawDashedLine = drawDashedLine;
   };
 
   var booster = Object.create(null);
