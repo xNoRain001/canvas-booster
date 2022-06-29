@@ -11,18 +11,36 @@ npm i canvas-booster
 <script src="../dist/canvas-booster.js"></script>
 ```
 
-## API
-
-### isSupport 浏览器是否支持canvas
+## 使用
 
 ```javascript
-// 返回 true / false
+// import canvasBooster from 'canvas-booster'
+
+canvasBooster[method]()
+```
+
+## API
+
+### isSupport
+
+```javascript
+/*
+ * 判断浏览器是否支持 canvas
+ *
+ * @return {boolean} 是否支持的结果
+ */
 canvasBooster.isSupport()
 ```
 
-### drawGrid 绘制网格
+### drawGrid 
 
 ```javascript
+/*
+ * 绘制网格
+ *
+ * @param {HTMLCanvasElement|object} options 配置项 
+ */
+
 // 只传 canvas element，会使用默认配置
 canvasBooster.drawGrid(canvas) 
 
@@ -38,9 +56,15 @@ canvasBooster.drawGrid({
 
 ```
 
-### drawAxis 绘制坐标轴
+### drawAxis 
 
 ```javascript
+/*
+ * 绘制坐标轴
+ *
+ * @param {HTMLCanvasElement|object} options 配置项 
+ */
+
 // 使用默认配置
 canvasBooster.drawAxis(canvas)
 
@@ -69,13 +93,15 @@ canvasBooster.drawAxis({
 })
 ```
 
-### drawDashedLine 绘制虚线
+### drawDashedLine 
 
 ```javascript
-// 使用默认配置
-canvasBooster.drawDashedLine(canvas)
+/*
+ * 绘制虚线
+ *
+ * @param {object} options 配置项
+ */
 
-// 使用自定义配置
 canvasBooster.drawDashedLine({
   context: canvas.getContext('2d'), // required
   x1: 10, // required
@@ -83,6 +109,6 @@ canvasBooster.drawDashedLine({
   x2: 290, // required
   y2: 10, // required
   color: 'black',
-  pattern = [10, 5]
+  pattern: [10, 5]
 })
 ```
